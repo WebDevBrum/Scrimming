@@ -1,3 +1,13 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import App from './App';
+
+
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+
 // Set up the React app from scratch
 // Render an App component (defined in a separate file)
 // Inside App, render:
