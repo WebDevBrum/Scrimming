@@ -5,3 +5,15 @@
 // HINTS:
 // import the libraries you need first
 // use one of the libraries to render some JSX to the page
+
+import React from 'react';
+import ReactDom from 'react-dom';
+
+ReactDom.render(
+  <ul>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+  </ul>, document.getElementById('root'));
+  
+  
