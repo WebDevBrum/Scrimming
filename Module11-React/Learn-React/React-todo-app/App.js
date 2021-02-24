@@ -7,12 +7,11 @@ Time to have fun styling! But first things first:
 */
 
 import React from "react"
-
-import TodoItem from './TodoItem';
+import TodoItem from "./TodoItem"
 
 function App() {
     return (
-        <div>
+        <div className="todo-list">
             <TodoItem />
             <TodoItem />
             <TodoItem />
