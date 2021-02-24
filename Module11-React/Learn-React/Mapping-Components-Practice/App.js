@@ -10,10 +10,24 @@ don't forget to pass a `key` prop to it to avoid the warning.
 import React from "react"
 import productsData from "./vschoolProducts"
 
+import Product from './Product';
+
+
+const products = productsData.map((product) => {
+    return (
+        <Product 
+            key={product.id}
+            name={product.name}
+            price={product.price}
+            description={product.description}
+         />
+    )
+})
+
 function App() {
   return (
     <div>
-        
+        {products}
     </div>
   )
 }
