@@ -1,21 +1,13 @@
-/**
- * Challenge: Get rid of our warning about not having an onChange on our input. For now, the function that runs onChange can simply console.log something.
- */
-
 import React from "react"
-
-function handleChange() {
-    console.log("changed");
-}
 
 function TodoItem(props) {
     return (
         <div className="todo-item">
             <input 
                 type="checkbox" 
-                defaultChecked={props.item.completed} 
-                onChange={handleChange}
-                />
+                checked={props.item.completed} 
+                onChange={() => console.log("Changed!")}
+            />
             <p>{props.item.text}</p>
         </div>
     )
