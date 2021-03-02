@@ -11,12 +11,32 @@ Given a stateless functional component:
 4. Display text that says "Logged in" if the user is logged in, or "Logged out" if they're not.
 */
 
-function App() {
-    return (
-        <div>
-            Code goes here
-        </div>
-    )
+class App extends React.Component {
+    constructor() {
+        super();
+        
+        this.state = {
+            loggedIn: true
+        }
+    }
+    
+    render(){
+        return (
+            <div>
+                {this.state.loggedIn ? 
+                <div>
+                    <button>Log Out</button> 
+                    <p>Logged In</p>
+                </div>
+                    : 
+                <div>
+                    <button>Log In</button>
+                    <p>Logged Out</p>
+                </div>
+                }
+            </div>
+        )  
+    }
 }
 
 export default App
