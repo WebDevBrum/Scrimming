@@ -14,28 +14,34 @@ Given a stateless functional component:
 class App extends React.Component {
     constructor() {
         super();
-        
         this.state = {
-            loggedIn: true
+            isLoggedIn: true
         }
+        
+        this.handleClick = this.handleClick.bind(this);
     }
     
+    handleClick() {
+        this.setState((prevState) => {
+            return {
+            isLoggedIn: !prevState.isLoggedIn
+            }
+        })
+        console.log(this.state);
+    }
+    
+    
     render(){
+        
+        let buttonText = this.state.isLoggedIn ? "Log Out" : "Log In" ;
+        let displayText = this.state.isLoggedIn ? "Logged In" : "Logged Out" ;
         return (
             <div>
-                {this.state.loggedIn ? 
-                <div>
-                    <button>Log Out</button> 
-                    <p>Logged In</p>
-                </div>
-                    : 
-                <div>
-                    <button>Log In</button>
-                    <p>Logged Out</p>
-                </div>
-                }
+                <button onClick={this.handleClick}>{buttonText}</button>
+                <h1>{displayText}</h1>
             </div>
-        )  
+        )
+        
     }
 }
 
