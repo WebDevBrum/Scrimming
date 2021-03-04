@@ -18,16 +18,44 @@ import React, {Component} from "react"
 class App extends Component {
     constructor() {
         super()
-        this.state = {}
+        this.state = {
+            firstName: "",
+            lastName: "",
+            age: 0
+        }
+        
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
+    
+    
+
+    
+    handleChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const {name} = target;
+        
+        this.setState({[name] : target.value});
+        console.log(this.state);
+    }
+    
+    handleSubmit(event) {
+        event.preventDefault();
+        alert(
+            `Name: ${this.state.firstName} ${this.state.lastName} 
+Age: ${this.state.age}`);
+        
+    }
+   
     
     render() {
         return (
             <main>
-                <form>
-                    <input placeholder="First Name" /><br />
-                    <input placeholder="Last Name" /><br />
-                    <input placeholder="Age" /><br />
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" placeholder="First Name" name="firstName" onChange={this.handleChange}/><br />
+                    <input type="text" placeholder="Last Name" name="lastName" onChange={this.handleChange}/><br />
+                    <input type="number" placeholder="Age" name="age" onChange={this.handleChange}/><br />
                     
                     {/* Create radio buttons for gender here */}
                     <br />
