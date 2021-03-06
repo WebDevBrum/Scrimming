@@ -21,7 +21,8 @@ class App extends Component {
         this.state = {
             firstName: "",
             lastName: "",
-            age: 0
+            age: 0,
+            show: false,
         }
         
         this.handleChange = this.handleChange.bind(this);
@@ -42,9 +43,10 @@ class App extends Component {
     
     handleSubmit(event) {
         event.preventDefault();
-        alert(
-            `Name: ${this.state.firstName} ${this.state.lastName} 
-Age: ${this.state.age}`);
+//         alert(
+//             `Name: ${this.state.firstName} ${this.state.lastName} 
+// Age: ${this.state.age}`);
+        this.setState({show: true})
         
     }
    
@@ -70,7 +72,7 @@ Age: ${this.state.age}`);
                 </form>
                 <hr />
                 <h2>Entered information:</h2>
-                <p>Your name: {/* First and last name here */}</p>
+                <p>Your name: {this.state.show ? this.state.firstName + ' ' + this.state.lastName : null}</p>
                 <p>Your age: {/* Age here */}</p>
                 <p>Your gender: {/* Gender here */}</p>
                 <p>Your destination: {/* Destination here */}</p>
