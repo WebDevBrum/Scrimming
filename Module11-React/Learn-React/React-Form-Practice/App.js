@@ -22,7 +22,12 @@ class App extends Component {
             firstName: "",
             lastName: "",
             age: 0,
-            show: false,
+            gender: "",
+            location: "EU",
+            vegetarian: "",
+            vegan: "",
+            glutenfree:"",
+            show: false
         }
         
         this.handleChange = this.handleChange.bind(this);
@@ -43,10 +48,13 @@ class App extends Component {
     
     handleSubmit(event) {
         event.preventDefault();
-//         alert(
-//             `Name: ${this.state.firstName} ${this.state.lastName} 
-// Age: ${this.state.age}`);
         this.setState({show: true})
+        alert(
+            `Name: ${this.state.firstName} ${this.state.lastName} 
+Age: ${this.state.age}
+Gender: ${this.state.gender}
+Location: ${this.state.location}
+Dietry: ${this.state.vegan}, ${this.state.vegetarian}, ${this.state.glutenfree}`);
         
     }
    
@@ -58,27 +66,84 @@ class App extends Component {
                     <input type="text" placeholder="First Name" name="firstName" onChange={this.handleChange}/><br />
                     <input type="text" placeholder="Last Name" name="lastName" onChange={this.handleChange}/><br />
                     <input type="number" placeholder="Age" name="age" onChange={this.handleChange}/><br />
-                    
-                    {/* Create radio buttons for gender here */}
+                    <label>
+                    <input 
+                        type="radio" 
+                        name="gender"
+                        value="male"
+                        checked={this.state.gender === "male"}
+                        onChange={this.handleChange}   
+                    />Male
+                    </label>
                     <br />
-                    
-                    {/* Create select box for location here */}
+                    <label>
+                    <input 
+                        type="radio" 
+                        name="gender"
+                        value="female"
+                        checked={this.state.gender === "male"}
+                        onChange={this.handleChange}   
+                    />Female
+                    </label>
                     <br />
-                    
-                    {/* Create check boxes for dietary restrictions here */}
                     <br />
-                    
+                    <label>Location</label>
+                    <select
+                        value={this.state.location}
+                        onChange={this.handleChange}
+                        name="location"
+                    >
+                        <option value="EU">EU</option>
+                        <option value="USA">USA</option>
+                        <option value="SOUTH AMERICA">SOUTH AMERICA</option>
+                        <option value="ASIA">ASIA</option>
+                        <option value="AFRICA">AFRICA</option>    
+                    </select>
+                    <br />
+                    <h3>Dietry Requirements</h3>
+                    <label>
+                    <input 
+                        type="checkbox" 
+                        name="vegetarian"
+                        value="veggie"
+                        checked={this.state.vegetarian}
+                        onChange={this.handleChange}
+                    />Vegetarian
+                    </label>
+                    <br />
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            name="vegan"
+                            value="vegan"
+                            checked={this.state.vegan}
+                            onChange={this.handleChange}
+                        />Vegan
+                    </label>
+                    <br />
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            name="glutenfree"
+                            value="gluten free"
+                            checked={this.state.glutenfree}
+                            onChange={this.handleChange}
+                        />Gluten Free
+                    </label>
+                    <br />
+                    <br /> 
                     <button>Submit</button>
                 </form>
                 <hr />
                 <h2>Entered information:</h2>
-                <p>Your name: {this.state.show ? this.state.firstName + ' ' + this.state.lastName : null}</p>
-                <p>Your age: {/* Age here */}</p>
-                <p>Your gender: {/* Gender here */}</p>
-                <p>Your destination: {/* Destination here */}</p>
+                <p>Invisible name: {this.state.show ? this.state.firstName + ' ' + this.state.lastName : null}</p>
+                <p>Your name: {this.state.firstName} {this.state.lastName}</p>
+                <p>Your age: {this.state.age}</p>
+                <p>Your gender: {this.state.gender}</p>
+                <p>Your destination: {this.state.location}</p>
                 <p>
                     Your dietary restrictions: 
-                    {/* Dietary restrictions here, comma separated */}
+                    {this.state.vegetarian}, {this.state.vegan}, {this.state.glutenfree}
                 </p>
             </main>
         )
