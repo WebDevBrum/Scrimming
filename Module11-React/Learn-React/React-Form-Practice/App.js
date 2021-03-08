@@ -23,10 +23,10 @@ class App extends Component {
             lastName: "",
             age: 0,
             gender: "",
-            location: "EU",
-            vegetarian: "",
-            vegan: "",
-            glutenfree:"",
+            location: "",
+            vegetarian: false,
+            vegan: false,
+            glutenfree: false,
             show: false
         }
         
@@ -44,6 +44,16 @@ class App extends Component {
         
         this.setState({[name] : target.value});
         console.log(this.state);
+        //alternatively
+        // const {name, value, type, checked} = event.target
+        // type === "checkbox" ? 
+        //     this.setState({
+        //         [name]: checked
+        //     })
+        // :
+        // this.setState({
+        //     [name]: value
+        // }) 
     }
     
     handleSubmit(event) {
@@ -54,7 +64,11 @@ class App extends Component {
 Age: ${this.state.age}
 Gender: ${this.state.gender}
 Location: ${this.state.location}
-Dietry: ${this.state.vegan}, ${this.state.vegetarian}, ${this.state.glutenfree}`);
+Dietry: 
+Veggie: ${this.state.vegetarian ? "Yes" : "No"}
+Vegan: ${this.state.vegan ? "Yes" : "No"}
+Gluten Free: ${this.state.glutenfree ? "Yes" : "No"}
+                `);
         
     }
    
@@ -81,7 +95,7 @@ Dietry: ${this.state.vegan}, ${this.state.vegetarian}, ${this.state.glutenfree}`
                         type="radio" 
                         name="gender"
                         value="female"
-                        checked={this.state.gender === "male"}
+                        checked={this.state.gender === "female"}
                         onChange={this.handleChange}   
                     />Female
                     </label>
@@ -93,6 +107,7 @@ Dietry: ${this.state.vegan}, ${this.state.vegetarian}, ${this.state.glutenfree}`
                         onChange={this.handleChange}
                         name="location"
                     >
+                        <option value="">-- Please Choose a destination --</option>
                         <option value="EU">EU</option>
                         <option value="USA">USA</option>
                         <option value="SOUTH AMERICA">SOUTH AMERICA</option>
@@ -105,7 +120,6 @@ Dietry: ${this.state.vegan}, ${this.state.vegetarian}, ${this.state.glutenfree}`
                     <input 
                         type="checkbox" 
                         name="vegetarian"
-                        value="veggie"
                         checked={this.state.vegetarian}
                         onChange={this.handleChange}
                     />Vegetarian
@@ -115,7 +129,6 @@ Dietry: ${this.state.vegan}, ${this.state.vegetarian}, ${this.state.glutenfree}`
                         <input 
                             type="checkbox" 
                             name="vegan"
-                            value="vegan"
                             checked={this.state.vegan}
                             onChange={this.handleChange}
                         />Vegan
@@ -125,7 +138,6 @@ Dietry: ${this.state.vegan}, ${this.state.vegetarian}, ${this.state.glutenfree}`
                         <input 
                             type="checkbox" 
                             name="glutenfree"
-                            value="gluten free"
                             checked={this.state.glutenfree}
                             onChange={this.handleChange}
                         />Gluten Free
@@ -141,10 +153,11 @@ Dietry: ${this.state.vegan}, ${this.state.vegetarian}, ${this.state.glutenfree}`
                 <p>Your age: {this.state.age}</p>
                 <p>Your gender: {this.state.gender}</p>
                 <p>Your destination: {this.state.location}</p>
-                <p>
-                    Your dietary restrictions: 
-                    {this.state.vegetarian}, {this.state.vegan}, {this.state.glutenfree}
-                </p>
+                <p>Your dietary restrictions: </p>
+                <p> Veggie: {this.state.vegetarian ? "Yes" : "No"}</p>
+                <p> Vegan: {this.state.vegan ? "Yes" : "No"}</p>
+                <p> Gluten Free: {this.state.glutenfree ? "Yes" : "No"}</p>
+                
             </main>
         )
     }
