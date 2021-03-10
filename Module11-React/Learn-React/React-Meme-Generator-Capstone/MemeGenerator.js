@@ -1,19 +1,41 @@
-import React from 'react';
+import React, {Component} from "react"
 
-class MemeGenerator extends React.Component {
-    constructor(){
-        super();
+class MemeGenerator extends Component {
+    constructor() {
+        super()
         this.state = {
-            test: "testing state"
+            topText: "",
+            bottomText: "",
+            randomImg: "http://i.imgflip.com/1bij.jpg",
+            allMemeImgs: {}
         }
     }
-
-render() {
-    return(
-        <h2>{this.state.test}</h2>
-    )
+    
+    /**
+     * We'll be using an API that provides a bunch of meme images.
+     * 
+     * Your task:
+     * make an API call to "https://api.imgflip.com/get_memes" and save the 
+     * data that comes back (`response.data.memes`) to a new state property
+     * called `allMemeImgs`. (The data that comes back is an array)
+     */
+    
+    componentDidMount() {
+        fetch("https://api.imgflip.com/get_memes")
+            .then(response => response.json())
+            .then(response => {
+                const {memes} = response.data
+                this.setState({allMemeImgs: memes}) //as opposed to {memes}
+                
+            })
+    }
+    
+    render() {
+        console.log(this.state.allMemeImgs[0])
+        return (
+            <h1>MEME GENERATOR SECTION</h1>
+        )
+    }
 }
 
-}
-
-export default MemeGenerator;
+export default MemeGenerator
