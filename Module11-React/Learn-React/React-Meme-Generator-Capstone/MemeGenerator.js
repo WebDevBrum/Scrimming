@@ -7,33 +7,42 @@ class MemeGenerator extends Component {
             topText: "",
             bottomText: "",
             randomImg: "http://i.imgflip.com/1bij.jpg",
-            allMemeImgs: {}
+            allMemeImgs: []
         }
     }
-    
-    /**
-     * We'll be using an API that provides a bunch of meme images.
-     * 
-     * Your task:
-     * make an API call to "https://api.imgflip.com/get_memes" and save the 
-     * data that comes back (`response.data.memes`) to a new state property
-     * called `allMemeImgs`. (The data that comes back is an array)
-     */
     
     componentDidMount() {
         fetch("https://api.imgflip.com/get_memes")
             .then(response => response.json())
             .then(response => {
                 const {memes} = response.data
-                this.setState({allMemeImgs: memes}) //as opposed to {memes}
-                
+                console.log(memes[0])
+                this.setState({ allMemeImgs: memes })
             })
     }
     
     render() {
-        console.log(this.state.allMemeImgs[0])
         return (
-            <h1>MEME GENERATOR SECTION</h1>
+            <div>
+                <form className="meme-form">
+                    {
+                        /**
+                         * Create 2 input fields, one for the topText and one for the bottomText
+                         * Remember that these will be "controlled forms", so make sure to add
+                         * all the attributes you'll need for that to work
+                         */
+                    }  
+                    <label> 
+                    Top text: 
+                        <input type="text" name="topText" value={this.state.topText} onChange={console.log("text")}/>
+                    </label>
+                    <label>
+                    Bottom text:
+                        <input type="text" name="bottomText" value={this.state.bottomText} onChange={console.log("text")} />
+                    </label>
+                    <button>Gen</button>
+                </form>
+            </div>
         )
     }
 }
