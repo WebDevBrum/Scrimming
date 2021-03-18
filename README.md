@@ -8,3 +8,6 @@ I am currently working through the React parts of the curriculum.
 
 Scrimba's educational style suits my current needs due to the constant live practice and challenges, something I feel is lacking in code-along style courses.
 
+__React Meme Generator__
+
+<img src='readme-images/dicaprio.jpeg' width='200' height='250' alt='treehouse logo'/>
