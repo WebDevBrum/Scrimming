@@ -3,8 +3,8 @@ import React from "react"
 function Card(props) {
     const styles = {
         backgroundColor: props.cardColor,
-        height: 100,
-        width: 100
+        height: props.height,
+        width: props.width
     }
     
     return (
@@ -13,7 +13,9 @@ function Card(props) {
 }
 
 Card.defaultProps = {
-    cardColor: "blue"
+    cardColor: "blue",
+    height: 100,
+    width: 100
 }
 
 export default Card

@@ -4,7 +4,7 @@ import Card from "./Card"
 function App() {
     return (
         <div>
-            <Card cardColor="red" height={} width={} />
+            <Card cardColor="red"  />
             <Card />
             <Card cardColor="green" />
         </div>
