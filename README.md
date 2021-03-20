@@ -14,4 +14,4 @@ __React Meme Generator__
 
 __React Movie Search App__
 
-<img src='readme-images/movie.jpeg' width='250' height='250' alt='treehouse logo'/>
+<img src='readme-images/movie.jpeg' width='240' height='240' alt='treehouse logo'/>
