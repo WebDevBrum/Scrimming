@@ -11,3 +11,7 @@ Scrimba's educational style suits my current needs due to the constant live prac
 __React Meme Generator__
 
 <img src='readme-images/dicaprio.jpeg' width='200' height='250' alt='treehouse logo'/>
+
+__React Movie Search App__
+
+<img src='readme-images/movie.jpeg' width='250' height='250' alt='treehouse logo'/>
