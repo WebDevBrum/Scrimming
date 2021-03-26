@@ -1,11 +1,27 @@
 import React from "react"
 import DataFetcher from "./DataFetcher"
 
+//https://swapi.dev/api/people/1/ New Api
 function App() {    
     return (
         <div>
-            <DataFetcher url="https://swapi.co/api/people/1">
-                {/**
+            <DataFetcher url="https://swapi.dev/api/people/1/">
+                {
+                   (loading, data) => {
+                       
+                       return (             
+                            loading ? <h1>Loading</h1> : <p>{JSON.stringify(data)}</p>    
+                       )
+                   }          
+            }
+            </DataFetcher>
+        </div>
+    )
+}
+
+export default App
+
+/**
                  * Part 2: Call the function the DataFetcher is expecting.
                  * If should receive the data and the loading state, and return the JSX
                  * that makes use of that info. If the data is still loading, display
@@ -17,10 +33,4 @@ function App() {
                  * on what's already written here for you, you should be able to figure
                  * out which of these we're using. (You may have to make changes to the
                  * DataFetcher component based on what you see here.)
-                 */}
-            </DataFetcher>
-        </div>
-    )
-}
-
-export default App
+                 */
