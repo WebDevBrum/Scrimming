@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+}
+
+
+/*My Solution*/
+
+h1 {
+    background-color: #281B2D;
+    color: #FFF;
+    text-align: center;
+    margin-top: 0px;
+    padding: 25px 0;
+    font-size: 72px;
+}
+
+/* solution with header styled */
+
+/* header {
+    background-color: #281B2D;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 72px;
+    margin: 0;
+} */
